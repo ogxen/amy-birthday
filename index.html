@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Happy Birthday Amy ❤️</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #ffe6f0;
+      color: #333;
+    }
+    h1 {
+      color: #ff4da6;
+    }
+    .box {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Happy Birthday Amy 🎂</h1>
+    <p>I wish I could be there with you today...</p>
+    <p>You mean everything to me ❤️</p>
+    <p>– From [Your Name]</p>
+
+<div class="section">
+  <h2>📖 Our Memories</h2>
+  
+  <select onchange="showMemory(this.value)">
+    <option value="">-- Pick a memory --</option>
+    <option value="1">The first time we talked</option>
+    <option value="2">Our funniest moment</option>
+    <option value="3">The moment I knew I loved you</option>
+  </select>
+
+  <div id="memoryText" class="card"></div>
+</div>
+  </div>
+
+function showMemory(val) {
+  let text = "";
+
+  if (val === "1") text = "I still remember how it all started...";
+  if (val === "2") text = "I don't think I've ever laughed that hard...";
+  if (val === "3") text = "That was the moment I realized you meant everything to me ❤️";
+
+  document.getElementById("memoryText").innerHTML = text;
+}
+</body>
+</html>
