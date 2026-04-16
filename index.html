@@ -1,52 +1,154 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Happy Birthday Amy ❤️</title>
-  <style>
-    body {
-      font-family: Arial;
-      text-align: center;
-      background: #ffe6f0;
-      color: #333;
-    }
-    h1 {
-      color: #ff4da6;
-    }
-    .box {
-      margin-top: 50px;
-    }
-  </style>
-</head>
-<body>
-  <div class="box">
-    <h1>Happy Birthday Amy 🎂</h1>
-    <p>I wish I could be there with you today...</p>
-    <p>You mean everything to me ❤️</p>
-    <p>– From [Your Name]</p>
+<meta charset="UTF-8">
+<title>Happy Birthday Amy ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div class="section">
-  <h2>📖 Our Memories</h2>
-  
-  <select onchange="showMemory(this.value)">
-    <option value="">-- Pick a memory --</option>
-    <option value="1">The first time we talked</option>
-    <option value="2">Our funniest moment</option>
-    <option value="3">The moment I knew I loved you</option>
-  </select>
-
-  <div id="memoryText" class="card"></div>
-</div>
-  </div>
-<script>
-function showMemory(val) {
-  let text = "";
-
-  if (val === "1") text = "I still remember how it all started...";
-  if (val === "2") text = "I don't think I've ever laughed that hard...";
-  if (val === "3") text = "That was the moment I realized you meant everything to me ❤️";
-
-  document.getElementById("memoryText").innerHTML = text;
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  color: white;
+  overflow-x: hidden;
+  background: linear-gradient(-45deg, #ff4da6, #ff99cc, #ff66b2, #ff1a8c);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
 }
+
+@keyframes gradient {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.container {
+  padding: 50px 20px;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+.typing {
+  font-size: 1.5em;
+  border-right: 3px solid white;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.section {
+  margin-top: 60px;
+}
+
+.card {
+  background: rgba(255,255,255,0.15);
+  padding: 20px;
+  margin: 10px auto;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 400px;
+  backdrop-filter: blur(10px);
+}
+
+button {
+  background: white;
+  color: #ff4da6;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 30px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+#secret {
+  display: none;
+  font-size: 1.3em;
+  margin-top: 20px;
+}
+
+/* floating hearts */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  font-size: 20px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  0% {transform: translateY(0);}
+  100% {transform: translateY(-100vh);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Happy Birthday Amy 🎂</h1>
+  <div class="typing" id="text"></div>
+
+  <div class="section">
+    <h2>💖 Reasons I Love You</h2>
+    <div class="card">You make my worst days better</div>
+    <div class="card">Your smile is my favorite thing</div>
+    <div class="card">You’re my peace, even from miles away</div>
+  </div>
+
+  <div class="section">
+    <h2>🎁 A Little Surprise</h2>
+    <button onclick="showSecret()">Click me</button>
+    <div id="secret">I wish I was there to celebrate with you… but this is my little piece of love for you ❤️</div>
+  </div>
+</div>
+
+<!-- Optional music -->
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
+
+<script>
+// typing effect
+const message = "I may be far away, but my heart is always with you ❤️";
+let i = 0;
+
+function typeWriter() {
+  if (i < message.length) {
+    document.getElementById("text").innerHTML += message.charAt(i);
+    i++;
+    setTimeout(typeWriter, 50);
+  }
+}
+typeWriter();
+
+// secret message
+function showSecret() {
+  document.getElementById("secret").style.display = "block";
+}
+
+// floating hearts
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}
+
+setInterval(createHeart, 300);
 </script>
+
 </body>
 </html>
