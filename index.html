@@ -88,8 +88,11 @@
         <select onchange="showMessage(this.value)">
             <option value="">Choose an option</option>
             <option value="1">What was my first impression of you</option>
-            <option value="2">Our future</option>
-            <option value="3">My favorite memory</option>
+            <option value="2">If you were a color</option>
+            <option value="3">If you were a time of day</option>
+            <option value="4">If you were a song</option>
+            <option value="5">If you were a word</option>
+            <option value="6">Your underrated talent</option>
         </select>
         <p id="messageBox"></p>
     </div>
@@ -124,11 +127,20 @@ function showSurprise() {
 function showMessage(val) {
     let msg = "";
     if (val === "1") {
-        msg = "A very sweet person.";
+        msg = "The most approachable and sweetest staff member";
     } else if (val === "2") {
-        msg = "I can't wait for all the moments we'll share together in the future.";
+        msg = "If you were a color. I'd say you'd be purple. So distinct and one that stands out even among millions of colors";
     } else if (val === "3") {
-        msg = "Every moment with you feels like my favorite memory.";
+        msg = "Easy. You will be sunrise. Because you brighten up the skies in everyone's lives";
+    }
+    else if (val === "4") {
+        msg = "Tera mera pyar amar. It's an urdu song that always reminds me of you";
+    }
+    else if (val === "5") {
+        msg = "Hope! no better word to describe you. It's not just your name but it's what you truly are. A hope for everyone";
+    }
+    else if (val === "6") {
+        msg = "You are great at writing and I know you will never ever admit it but its true";
     }
     document.getElementById("messageBox").innerText = msg;
 }
