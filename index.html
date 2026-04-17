@@ -67,6 +67,27 @@
         50% { transform: translateY(-10px); }
         100% { transform: translateY(0); }
     }
+
+    .slider {
+    position: relative;
+}
+
+.slider img {
+    width: 100%;
+    border-radius: 10px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.slider-buttons {
+    margin-top: 10px;
+}
+
+.dots span {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 5px;
+}
 </style>
 </head>
 <body>
@@ -84,7 +105,7 @@
 
     <!-- Dropdown Messages -->
     <div class="card">
-        <h3>Pick a message 💌</h3>
+        <h3>Pick a message</h3>
         <select onchange="showMessage(this.value)">
             <option value="">Choose an option</option>
             <option value="1">What was my first impression of you</option>
@@ -99,11 +120,32 @@
 
     <!-- Love Notes Generator -->
     <div class="card">
-        <h3>Note for you 💕</h3>
+        <h3>Random notes for you 💕</h3>
         <button onclick="generateNote()">Generate</button>
         <p id="loveNote"></p>
     </div>
 
+<div class="card">
+    <h3>If you were a vibe ✨</h3>
+
+    <div class="slider">
+        <img id="slide" src="photo1.jpg" alt="memory">
+
+        <div class="slider-buttons">
+            <button onclick="prevSlide()">⬅️</button>
+            <button onclick="nextSlide()">➡️</button>
+        </div>
+
+        <div class="dots">
+            <span onclick="goToSlide(0)">●</span>
+            <span onclick="goToSlide(1)">●</span>
+            <span onclick="goToSlide(2)">●</span>
+        </div>
+    </div>
+</div>
+
+
+    
     <!-- Mini Quiz -->
     <div class="card">
         <h3>Mini Quiz</h3>
@@ -164,6 +206,31 @@ function checkAnswer(correct) {
         document.getElementById("quizResult").innerText = "Ewwww. Wrong answer 😖";
     }
 }
+
+const images = ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"];
+let current = 0;
+
+function showSlide(index) {
+    current = index;
+    document.getElementById("slide").src = images[current];
+}
+
+function nextSlide() {
+    current = (current + 1) % images.length;
+    showSlide(current);
+}
+
+function prevSlide() {
+    current = (current - 1 + images.length) % images.length;
+    showSlide(current);
+}
+
+function goToSlide(index) {
+    showSlide(index);
+}
+
+// Auto slide every 3 seconds
+setInterval(nextSlide, 3000);
 </script>
 
 </body>
