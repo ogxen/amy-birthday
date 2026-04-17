@@ -99,23 +99,23 @@
 
     <!-- Love Notes Generator -->
     <div class="card">
-        <h3>Generate a Love Note 💕</h3>
+        <h3>Note for you 💕</h3>
         <button onclick="generateNote()">Generate</button>
         <p id="loveNote"></p>
     </div>
 
     <!-- Mini Quiz -->
     <div class="card">
-        <h3>Mini Quiz 🧠</h3>
-        <p>When did we first meet?</p>
-        <button onclick="checkAnswer(false)">January</button>
-        <button onclick="checkAnswer(true)">The best day ever</button>
-        <button onclick="checkAnswer(false)">I forgot</button>
+        <h3>Mini Quiz</h3>
+        <p>How much do I love you?</p>
+        <button onclick="checkAnswer(false)">50%</button>
+        <button onclick="checkAnswer(true)">Beyond any limit</button>
+        <button onclick="checkAnswer(false)">0%</button>
         <p id="quizResult"></p>
     </div>
 
     <!-- Hearts -->
-    <div class="heart">❤️ ❤️ ❤️</div>
+    <div class="heart">🎂❤️🎂❤️🎂❤️🎂</div>
 
 </div>
 
@@ -147,11 +147,11 @@ function showMessage(val) {
 
 function generateNote() {
     const notes = [
-        "You're my favorite person 💖",
-        "Distance means nothing when you mean everything 🌍",
-        "I fall for you more every day ❤️",
-        "You're my happiness 😊",
-        "Forever wouldn't be long enough with you 💕"
+        "You mean the world to me Amu",
+        "I'm so proud of you",
+        "You are the best. Never ever let anyne tell you otherwise",
+        "You are my June",
+        "It's you. Always and forever"
     ];
     const random = notes[Math.floor(Math.random() * notes.length)];
     document.getElementById("loveNote").innerText = random;
@@ -159,9 +159,9 @@ function generateNote() {
 
 function checkAnswer(correct) {
     if (correct) {
-        document.getElementById("quizResult").innerText = "Correct! You know us so well ❤️";
+        document.getElementById("quizResult").innerText = "THE ONLY CORRECT ANSWER. AND I ALWAYS WILL!!!!!";
     } else {
-        document.getElementById("quizResult").innerText = "Wrong 😜 Try again!";
+        document.getElementById("quizResult").innerText = "Ewwww. Wrong answer 😖";
     }
 }
 </script>
